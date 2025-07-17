@@ -2,76 +2,152 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
-  <title>Mon Portfolio DevOps</title>
+  <title>Yannick Jeefre – Ingénieur DevOps & Cloud</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    body {
+    :root {
+      --primary: #f7b42c;
+      --secondary: #2a5298;
+      --bg-dark: #1e3c72;
+      --white: #fff;
+      --shadow: 0 4px 24px 0 rgba(30,60,114,0.15);
+    }
+    html, body {
       margin: 0;
+      padding: 0;
       min-height: 100vh;
       font-family: 'Roboto', Arial, sans-serif;
-      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #f7b42c 100%);
-      color: #fff;
+      background: linear-gradient(135deg, var(--bg-dark) 0%, var(--secondary) 50%, var(--primary) 100%);
+      color: var(--white);
+      scroll-behavior: smooth;
+    }
+    header.hero {
+      width: 100%;
+      min-height: 60vh;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
-      padding: 0;
-    }
-    header {
-      width: 100%;
-      padding: 60px 20px 30px 20px;
+      justify-content: center;
       text-align: center;
       background: rgba(30,60,114,0.7);
-      box-shadow: 0 4px 24px 0 rgba(30,60,114,0.15);
+      box-shadow: var(--shadow);
+      padding: 80px 20px 60px 20px;
+      position: relative;
+      overflow: hidden;
     }
-    h1 {
+    .hero h1 {
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 3rem;
-      margin: 0 0 10px 0;
+      font-size: 3.2rem;
+      margin: 0 0 18px 0;
       letter-spacing: 2px;
-      background: linear-gradient(90deg, #f7b42c, #2a5298);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
       text-fill-color: transparent;
+      animation: fadeInDown 1s;
     }
-    .subtitle {
-      font-size: 1.3rem;
-      color: #f7b42c;
-      margin-bottom: 0;
+    .hero .slogan {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 30px;
       font-weight: 500;
+      animation: fadeInUp 1.2s;
     }
-    main {
-      width: 100%;
-      max-width: 900px;
-      padding: 40px 20px 20px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    .intro {
-      font-size: 1.2rem;
-      margin-bottom: 40px;
-      background: rgba(255,255,255,0.08);
-      padding: 24px 32px;
-      border-radius: 18px;
-      box-shadow: 0 2px 12px 0 rgba(30,60,114,0.10);
-      max-width: 600px;
-    }
-    .projets-section {
-      width: 100%;
-      margin-top: 30px;
-    }
-    .projets-title {
+    .hero .cta {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: var(--white);
+      text-decoration: none;
+      padding: 16px 38px;
+      border-radius: 12px;
       font-family: 'Montserrat', Arial, sans-serif;
-      font-size: 2rem;
-      margin-bottom: 24px;
-      color: #fff;
+      font-size: 1.2rem;
+      font-weight: 700;
       letter-spacing: 1px;
-      text-align: center;
+      box-shadow: 0 2px 12px 0 rgba(30,60,114,0.10);
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      margin-top: 10px;
+      animation: fadeInUp 1.4s;
     }
-    .projets-list {
+    .hero .cta:hover {
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: var(--bg-dark);
+      transform: scale(1.05);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    section {
+      width: 100%;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 60px 20px 40px 20px;
+      box-sizing: border-box;
+    }
+    .section-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2.2rem;
+      color: var(--primary);
+      margin-bottom: 32px;
+      text-align: center;
+      letter-spacing: 1px;
+    }
+    .about {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 36px 32px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      font-size: 1.2rem;
+      line-height: 1.7;
+      color: #f7f7f7;
+      text-align: center;
+      animation: fadeInUp 1.2s;
+    }
+    /* Carrousel logos */
+    .skills-carousel {
+      background: rgba(255,255,255,0.10);
+      border-radius: 16px;
+      box-shadow: var(--shadow);
+      padding: 24px 0;
+      margin-bottom: 40px;
+      overflow: hidden;
+      position: relative;
+      animation: fadeInUp 1.2s;
+    }
+    .carousel-track {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      animation: scroll 18s linear infinite;
+      will-change: transform;
+    }
+    .carousel-track img {
+      height: 48px;
+      width: auto;
+      filter: drop-shadow(0 2px 8px #0002);
+      opacity: 0.92;
+      transition: transform 0.2s, filter 0.2s;
+    }
+    .carousel-track img:hover {
+      transform: scale(1.15) rotate(-4deg);
+      filter: drop-shadow(0 4px 16px #f7b42c88);
+      opacity: 1;
+    }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    /* Projets */
+    .projects-list {
       display: flex;
       flex-wrap: wrap;
       gap: 32px;
@@ -80,10 +156,10 @@
       padding: 0;
       margin: 0;
     }
-    .projet-card {
+    .project-card {
       background: rgba(255,255,255,0.10);
       border-radius: 16px;
-      box-shadow: 0 4px 24px 0 rgba(30,60,114,0.10);
+      box-shadow: var(--shadow);
       padding: 32px 28px;
       min-width: 260px;
       max-width: 340px;
@@ -91,22 +167,27 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
+      animation: fadeInUp 1.2s;
     }
-    .projet-card:hover {
+    .project-card:hover {
       transform: translateY(-8px) scale(1.03);
       box-shadow: 0 8px 32px 0 #f7b42c55;
       background: rgba(247,180,44,0.18);
     }
-    .projet-card strong {
+    .project-card strong {
       font-size: 1.2rem;
-      color: #f7b42c;
+      color: var(--primary);
       margin-bottom: 8px;
     }
-    .projet-card a {
+    .project-card .desc {
+      margin-bottom: 16px;
+      color: #f7f7f7;
+    }
+    .project-card a {
       margin-top: 12px;
       display: inline-block;
-      background: linear-gradient(90deg, #f7b42c, #2a5298);
-      color: #fff;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: var(--white);
       text-decoration: none;
       padding: 10px 22px;
       border-radius: 8px;
@@ -116,37 +197,128 @@
       transition: background 0.2s, color 0.2s;
       box-shadow: 0 2px 8px 0 rgba(30,60,114,0.10);
     }
-    .projet-card a:hover {
-      background: linear-gradient(90deg, #2a5298, #f7b42c);
-      color: #1e3c72;
+    .project-card a:hover {
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: var(--bg-dark);
     }
-    @media (max-width: 700px) {
-      h1 { font-size: 2.1rem; }
-      .projets-list { flex-direction: column; gap: 18px; }
-      .projet-card { width: 100%; min-width: unset; max-width: unset; }
-      main { padding: 20px 5px; }
+    /* Contact */
+    .contact {
+      background: rgba(255,255,255,0.08);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      padding: 36px 32px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+      animation: fadeInUp 1.2s;
+    }
+    .contact .contact-btn {
+      margin-top: 18px;
+      display: inline-block;
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
+      color: var(--white);
+      text-decoration: none;
+      padding: 12px 32px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      box-shadow: 0 2px 8px 0 rgba(30,60,114,0.10);
+    }
+    .contact .contact-btn:hover {
+      background: linear-gradient(90deg, var(--secondary), var(--primary));
+      color: var(--bg-dark);
+      transform: scale(1.05);
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      .projects-list { flex-direction: column; gap: 18px; }
+      .project-card { width: 100%; min-width: unset; max-width: unset; }
+      section { padding: 40px 5px; }
+    }
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2rem; }
+      .section-title { font-size: 1.3rem; }
+      .about, .contact { padding: 18px 8px; }
     }
   </style>
 </head>
 <body>
-  <header>
+  <header class="hero">
     <h1>Yannick Jeefre</h1>
-    <div class="subtitle">Ingénieur DevOps & Automatisation</div>
+    <div class="slogan">Ingénieur DevOps & Cloud – Automatisation, Performance, Innovation</div>
+    <a href="#contact" class="cta">Discutons de votre projet</a>
   </header>
-  <main>
-    <div class="intro">
-      Passionné par l’infrastructure, l’automatisation et le DevOps, je conçois des solutions robustes et innovantes pour accélérer la transformation digitale.
+
+  <section id="about">
+    <div class="section-title">À propos de moi</div>
+    <div class="about">
+      Ingénieur DevOps passionné par l’automatisation, le cloud et la fiabilité, j’accompagne les entreprises dans leur transformation digitale en concevant des infrastructures robustes, scalables et sécurisées. Mon expertise couvre l’intégration continue, le déploiement automatisé, l’optimisation des workflows et la migration vers le cloud. J’aime relever les défis techniques et proposer des solutions innovantes pour accélérer la livraison de valeur.
     </div>
-    <section class="projets-section">
-      <div class="projets-title">Projets</div>
-      <ul class="projets-list">
-        <li class="projet-card">
-          <strong>Déploiement Terraform + Ansible</strong>
-          <span>Automatisation complète d’une infrastructure sur Proxmox avec configuration via Ansible.</span>
-          <a href="projets/projet-terraform-ansible/index.html">Voir le projet</a>
-        </li>
-      </ul>
-    </section>
-  </main>
+  </section>
+
+  <section id="skills">
+    <div class="section-title">Compétences & Technologies</div>
+    <div class="skills-carousel">
+      <div class="carousel-track">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible" title="Ansible">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS" title="AWS">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" title="Azure">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" title="Google Cloud Platform">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux">
+        <!-- Répéter pour effet de boucle -->
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/terraform/terraform-original.svg" alt="Terraform" title="Terraform">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ansible/ansible-original.svg" alt="Ansible" title="Ansible">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" alt="Docker" title="Docker">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/kubernetes/kubernetes-plain.svg" alt="Kubernetes" title="Kubernetes">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/aws/aws-original.svg" alt="AWS" title="AWS">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/azure/azure-original.svg" alt="Azure" title="Azure">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/googlecloud/googlecloud-original.svg" alt="GCP" title="Google Cloud Platform">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bash/bash-original.svg" alt="Bash" title="Bash">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" title="Python">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" title="Git">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" title="Linux">
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <div class="section-title">Projets récents</div>
+    <ul class="projects-list">
+      <li class="project-card">
+        <strong>Déploiement automatisé avec Terraform & Ansible</strong>
+        <div class="desc">Infrastructure complète sur Proxmox, provisionnée avec Terraform et configurée via Ansible pour une automatisation de bout en bout.</div>
+        <a href="projets/projet-terraform-ansible/index.html">Voir le projet</a>
+      </li>
+      <li class="project-card">
+        <strong>Migration Cloud AWS</strong>
+        <div class="desc">Migration d’applications critiques vers AWS, mise en place de pipelines CI/CD, sécurité et monitoring avancés.</div>
+        <a href="#">En savoir plus</a>
+      </li>
+      <li class="project-card">
+        <strong>Orchestration Kubernetes</strong>
+        <div class="desc">Déploiement et gestion de clusters Kubernetes pour des applications microservices, avec automatisation du scaling et monitoring.</div>
+        <a href="#">En savoir plus</a>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <div class="section-title">Contact</div>
+    <div class="contact">
+      Envie de collaborer, d’échanger sur un projet ou de booster votre infrastructure ? Je suis à votre écoute !
+      <br>
+      <a href="mailto:jeefrekenang@gmail.com" class="contact-btn">Me contacter</a>
+    </div>
+  </section>
+
 </body>
 </html>
