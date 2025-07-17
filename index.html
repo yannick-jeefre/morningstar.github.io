@@ -3,17 +3,150 @@
 <head>
   <meta charset="UTF-8">
   <title>Mon Portfolio DevOps</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;400&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: 'Roboto', Arial, sans-serif;
+      background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #f7b42c 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding: 0;
+    }
+    header {
+      width: 100%;
+      padding: 60px 20px 30px 20px;
+      text-align: center;
+      background: rgba(30,60,114,0.7);
+      box-shadow: 0 4px 24px 0 rgba(30,60,114,0.15);
+    }
+    h1 {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 3rem;
+      margin: 0 0 10px 0;
+      letter-spacing: 2px;
+      background: linear-gradient(90deg, #f7b42c, #2a5298);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-fill-color: transparent;
+    }
+    .subtitle {
+      font-size: 1.3rem;
+      color: #f7b42c;
+      margin-bottom: 0;
+      font-weight: 500;
+    }
+    main {
+      width: 100%;
+      max-width: 900px;
+      padding: 40px 20px 20px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .intro {
+      font-size: 1.2rem;
+      margin-bottom: 40px;
+      background: rgba(255,255,255,0.08);
+      padding: 24px 32px;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px 0 rgba(30,60,114,0.10);
+      max-width: 600px;
+    }
+    .projets-section {
+      width: 100%;
+      margin-top: 30px;
+    }
+    .projets-title {
+      font-family: 'Montserrat', Arial, sans-serif;
+      font-size: 2rem;
+      margin-bottom: 24px;
+      color: #fff;
+      letter-spacing: 1px;
+      text-align: center;
+    }
+    .projets-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 32px;
+      justify-content: center;
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .projet-card {
+      background: rgba(255,255,255,0.10);
+      border-radius: 16px;
+      box-shadow: 0 4px 24px 0 rgba(30,60,114,0.10);
+      padding: 32px 28px;
+      min-width: 260px;
+      max-width: 340px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .projet-card:hover {
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 8px 32px 0 #f7b42c55;
+      background: rgba(247,180,44,0.18);
+    }
+    .projet-card strong {
+      font-size: 1.2rem;
+      color: #f7b42c;
+      margin-bottom: 8px;
+    }
+    .projet-card a {
+      margin-top: 12px;
+      display: inline-block;
+      background: linear-gradient(90deg, #f7b42c, #2a5298);
+      color: #fff;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-weight: 500;
+      font-family: 'Montserrat', Arial, sans-serif;
+      letter-spacing: 1px;
+      transition: background 0.2s, color 0.2s;
+      box-shadow: 0 2px 8px 0 rgba(30,60,114,0.10);
+    }
+    .projet-card a:hover {
+      background: linear-gradient(90deg, #2a5298, #f7b42c);
+      color: #1e3c72;
+    }
+    @media (max-width: 700px) {
+      h1 { font-size: 2.1rem; }
+      .projets-list { flex-direction: column; gap: 18px; }
+      .projet-card { width: 100%; min-width: unset; max-width: unset; }
+      main { padding: 20px 5px; }
+    }
+  </style>
 </head>
 <body>
-  <h1>Bienvenue sur mon portfolio</h1>
-  <p>Je m'appelle [Ton Prénom] et je suis passionné par l'infrastructure, l'automatisation et le DevOps.</p>
-
-  <h2>Projets</h2>
-  <ul>
-    <li>
-      <strong>Déploiement Terraform + Ansible</strong><br>
-      <a href="projets/projet-terraform-ansible/index.html">Voir le projet</a>
-    </li>
-  </ul>
+  <header>
+    <h1>Yannick Jeefre</h1>
+    <div class="subtitle">Ingénieur DevOps & Automatisation</div>
+  </header>
+  <main>
+    <div class="intro">
+      Passionné par l’infrastructure, l’automatisation et le DevOps, je conçois des solutions robustes et innovantes pour accélérer la transformation digitale.
+    </div>
+    <section class="projets-section">
+      <div class="projets-title">Projets</div>
+      <ul class="projets-list">
+        <li class="projet-card">
+          <strong>Déploiement Terraform + Ansible</strong>
+          <span>Automatisation complète d’une infrastructure sur Proxmox avec configuration via Ansible.</span>
+          <a href="projets/projet-terraform-ansible/index.html">Voir le projet</a>
+        </li>
+      </ul>
+    </section>
+  </main>
 </body>
 </html>
